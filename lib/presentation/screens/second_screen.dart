@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:s_template/common/extensions/context_extension.dart';
 import 'package:s_template/presentation/providers/user_provider.dart';
+import 'package:s_template/presentation/screens/third_screen.dart';
 import 'package:s_template/presentation/themes/spacing.dart';
 
 import '../components/app_bar.dart';
@@ -16,6 +18,7 @@ class SecondScreen extends StatelessWidget {
 
   void _chooseUser(BuildContext context) {
     context.clearSnackBars();
+    context.push(ThirdScreen.path);
   }
 
   @override

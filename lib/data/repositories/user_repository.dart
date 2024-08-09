@@ -11,7 +11,7 @@ class UserRepository extends Repository {
 
   final userRemoteDatasource = locator<UserRemoteDatasource>();
 
-  Future<Either<AppError, List<UserModel>>> getUsers(int page, int pageSize) async {
+  Future<Either<AppError, (List<UserModel>, bool isLast)>> getUsers(int page, int pageSize) async {
     return handleNetworkCall(
       call: userRemoteDatasource.getUsers(page, pageSize),
       onSuccess: (data) => data,

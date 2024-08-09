@@ -1,2 +1,1 @@
-# STemplate
-My simple starter Flutter project template.
+# Suitmedia Mobile Test

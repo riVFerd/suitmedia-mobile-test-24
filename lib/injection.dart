@@ -6,6 +6,9 @@ import 'package:s_template/common/storage/shared_pref_storage.dart';
 import 'package:s_template/common/storage/storage.dart';
 import 'package:s_template/common/network/api_service.dart';
 import 'package:s_template/data/datasources/session/session_source.dart';
+import 'package:s_template/data/repositories/user_repository.dart';
+
+import 'data/datasources/remote_datasources/user_remote_datasource.dart';
 
 final locator = GetIt.instance;
 
@@ -17,4 +20,6 @@ void initializeDependencies() {
   locator.registerLazySingleton<Connectivity>(() => Connectivity());
   locator.registerLazySingleton(() => NetworkInfo(locator.get()));
   // Todo: Register all dependencies here
+  locator.registerLazySingleton<UserRemoteDatasource>(() => UserRemoteDatasource(locator.get(), locator.get()));
+  locator.registerLazySingleton<UserRepository>(() => UserRepository(locator.get()));
 }
