@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:s_template/common/extensions/context_extension.dart';
+import 'package:s_template/presentation/screens/second_screen.dart';
 
 import '../components/custom_elevated_button.dart';
 import '../components/custom_text_field.dart';
@@ -31,6 +33,7 @@ class FirstScreen extends HookWidget {
     if (name.isEmpty) {
       return context.showSnackBar('Name cannot be empty');
     }
+    context.push(SecondScreen.path, extra: name);
   }
 
   @override
